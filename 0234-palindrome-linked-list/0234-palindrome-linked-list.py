@@ -9,6 +9,17 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: bool
         """
+        self.cur = head
+        return self.recPalin(head)
+    
+    def recPalin(self, head):
+        if head == None: return True
+
+        test = self.recPalin(head.next) and head.val == self.cur.val
+        self.cur = self.cur.next
+        return test
+        """
+        First Solve
         t = head
         back = None
         while t != None: 
@@ -24,3 +35,4 @@ class Solution(object):
             back = back.next
         
         return True
+        """
