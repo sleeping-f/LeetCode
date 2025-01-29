@@ -4,7 +4,7 @@
 #         self.val = val
 #         self.next = next
 class Solution(object):
-    def addTwoNumbers(self, l1, l2, level = 0, sum = 0):
+    def addTwoNumbers(self, l1, l2):
         """
         :type l1: Optional[ListNode]
         :type l2: Optional[ListNode]
