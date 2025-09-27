@@ -11,6 +11,7 @@ class Solution(object):
         :type targetSum: int
         :rtype: bool
         """
+        '''
         if root == None: return False
 
         from collections import deque
@@ -33,3 +34,14 @@ class Solution(object):
                 q.append([rt.right, total + rt.right.val])
 
         return False
+        '''
+        if not root:
+            return False
+        
+        if not root.left and not root.right:
+            return targetSum == root.val
+        
+        left_sum = self.hasPathSum(root.left, targetSum - root.val)
+        right_sum = self.hasPathSum(root.right, targetSum - root.val)
+        
+        return left_sum or right_sum
