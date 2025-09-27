@@ -11,6 +11,7 @@ class Solution(object):
         :rtype: int
         """
         '''
+        it's not bfs lmao. simple traversal
         if root == None: return 0
         flag = False
         def BFSmin(root, count = 1, minDep = float('inf')):
@@ -38,15 +39,17 @@ class Solution(object):
         while q:
             froot = q.popleft()
             count = froot[1]
-            if froot[0].left == None and froot[0].right == None:
+            rt = froot[0]
+
+            if rt.left == None and rt.right == None:
                 return count
-            elif froot[0].left == None:
-                q.append([froot[0].right, count+1])
-            elif froot[0].right == None:
-                q.append([froot[0].left, count+1])
+            elif rt.left == None:
+                q.append([rt.right, count+1])
+            elif rt.right == None:
+                q.append([rt.left, count+1])
             else:
-                q.append([froot[0].left, count+1])
-                q.append([froot[0].right, count+1])
+                q.append([rt.left, count+1])
+                q.append([rt.right, count+1])
 
           
 
