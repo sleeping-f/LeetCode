@@ -14,7 +14,7 @@ class Solution(object):
 
         if root == None: return level_order
 
-        from collections import deque
+        #from collections import deque
 
         q = deque()
 
