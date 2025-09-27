@@ -41,19 +41,20 @@ class Solution(object):
 
         q = deque()
         q.append(root) 
+        num = 0
 
         while q:    
             lvl = len(q)
-            lvl_list = []
+            lvl_order.append([])
 
             for _ in range (lvl):
                 node = q.popleft()
-                lvl_list.append(node.val)
+                lvl_order[num].append(node.val)
                 if node.left:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            lvl_order.append(lvl_list)
+            num += 1
         
         return lvl_order
 
