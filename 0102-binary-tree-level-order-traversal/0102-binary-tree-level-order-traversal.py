@@ -10,6 +10,7 @@ class Solution(object):
         :type root: Optional[TreeNode]
         :rtype: List[List[int]]
         """
+        '''
         level_order = []
 
         if root == None: return level_order
@@ -33,5 +34,27 @@ class Solution(object):
                 q.append([rt.right, level+1])
 
         return level_order
+        '''
+
+        lvl_order = []
+        if not root: return []
+
+        q = deque()
+        q.append(root) 
+
+        while q:    
+            lvl = len(q)
+            lvl_list = []
+
+            for _ in range (lvl):
+                node = q.popleft()
+                lvl_list.append(node.val)
+                if node.left:
+                    q.append(node.left)
+                if node.right:
+                    q.append(node.right)
+            lvl_order.append(lvl_list)
+        
+        return lvl_order
 
 
