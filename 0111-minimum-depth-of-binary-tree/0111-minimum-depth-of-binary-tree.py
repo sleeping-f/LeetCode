@@ -37,9 +37,7 @@ class Solution(object):
         count = 1
         q.append([root, count])
         while q:
-            froot = q.popleft()
-            count = froot[1]
-            rt = froot[0]
+            rt, count = q.popleft()
 
             if rt.left == None and rt.right == None:
                 return count
